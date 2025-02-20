@@ -19,4 +19,12 @@ export class MasterService {
   searchBus(fromLocation: number, ToLocation: number, travelDate: string) : Observable<any[]> {
     return this.http.get<any[]>(`/api/BusBooking/searchBus?fromLocation=${fromLocation}&toLocation=${ToLocation}&travelDate=${travelDate}`);
   }
+
+  getScheduleById(id: number){
+    return this.http.get<any[]>(`/api/BusBooking/GetBusScheduleById?id=${id}`);
+  }
+
+  getBookedSeatsById(id: number){
+    return this.http.get<any[]>(`/api/BusBooking/getBookedSeats?shceduleId=${id}`);
+  }
 }

@@ -1,1 +1,39 @@
-<p>booking works!</p>
+<section id="booking-form" class="my-4"  >
+    <div class="container mt-5">
+        <div class="row">
+            
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12 text-end">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2907/2907720.png" alt="Driver Icon" class="driver">
+                    </div>
+                </div>
+                <div class="row">
+                    @for (item of seatArray; track $index) {
+
+                        @if (checkIfSeatBooked(item) != -1) {
+                            <div class="col-3">
+                                <div class="seat reserved">{{item}}</div>
+                            </div>   
+                        } @else {
+                            @if (checkIfSeatSelected(item) != -1) {
+                                <div class="col-3">
+                                    <div class="seat selected" (click) = "selectSeat(item)">{{item}}</div>
+                                </div>  
+                            } @else {
+                                <div class="col-3">
+                                    <div class="seat available" (click) = "selectSeat(item)">{{item}}</div>
+                                </div> 
+                            }
+                              
+                        }
+                       
+                    }                               
+                </div>
+            </div>
+            <div class="col-8">
+                
+            </div>
+        </div> 
+      </div> 
+</section>
